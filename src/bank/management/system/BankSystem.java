@@ -113,9 +113,10 @@ class BankSystem {
     }
 
     private void saveTransaction(String accountNumber, String type, double amount) {
+        SavingsAccount account = accounts.get(accountNumber);
         try ( BufferedWriter writer = new BufferedWriter(new FileWriter(TRANSACTIONS_FILE, true))) {
-            writer.write(accountNumber + " | " + type + " | $" + amount + " | " + new Date());
-            writer.newLine();
+                writer.write(accountNumber + " | " + type + " | $" + amount + " | " + new Date());
+                writer.newLine();
         } catch (IOException e) {
             System.out.println("Error saving transaction: " + e.getMessage());
         }

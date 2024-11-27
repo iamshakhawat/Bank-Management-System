@@ -6,6 +6,7 @@ class SavingsAccount extends Account {
         super(accountNumber, name, password);
     }
 
+    
     @Override
     public void deposit(double amount) {
         if (amount > 0) {
